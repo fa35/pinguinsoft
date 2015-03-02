@@ -5,6 +5,9 @@ groupadd pl
 groupadd ewa
 groupadd sb
 
+# options used:
+# -M: do not create home directory
+# -N: Do not create a group with the same name as the user
 useradd -M -N --groups pl,pa pla
 echo "pla:osz" | chpasswd
 useradd -M -N --groups pl plx
