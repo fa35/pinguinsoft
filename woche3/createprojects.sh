@@ -9,10 +9,19 @@ do
 
   # get data from conf files
   pname=`grep "pname" $file | cut -d : -f2`
+  pname=${pname%?}
+  groupadd "dev_$pname"
   pleiter=`grep "pleiter" $file | cut -d: -f2`
   pleiter=${pleiter%?}
   pmitarbeiter=`grep "pmitarbeiter" $file | cut -d: -f2`
-  pname=${pname%?}
+  #pmitarbeiter=${pmitarbeiter%?}
+  echo $pmitarbeiter 
+  devlist=$(echo $pmitarbeiter | tr "," "\n")
+  for dev in $devlist
+  do
+    usermod -a -G "dev_$pname" $dev
+  done
+
 
   # delete directories before recreating them
   if [ -d $pname ]; then
@@ -21,7 +30,6 @@ do
   mkdir $pname
   cd $pname
   groupadd $pname
-  groupadd "dev_$pname"
   ../../installenv.sh $pname $pleiter
   cd ..
 done
