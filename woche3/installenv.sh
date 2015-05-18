@@ -6,11 +6,6 @@ pa=$pname
 ewa=dev_$pname
 pla=$pleiter
 
-#groupadd $pa
-#groupadd pl
-#groupadd $ewa
-#groupadd sb
-
 mkdir org
 mkdir src
 mkdir temp
