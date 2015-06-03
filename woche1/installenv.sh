@@ -8,15 +8,15 @@ groupadd sb
 # options used:
 # -M: do not create home directory
 # -N: Do not create a group with the same name as the user
-useradd -M -N --groups pl,pa pla
+useradd -c "Müller Christina" -M -N --groups pl,pa pla
 echo "pla:osz" | chpasswd
-useradd -M -N --groups pl plx
+useradd -c "Perterson Peter" -M -N --groups pl plx
 echo "plx:osz" | chpasswd
-useradd -M -N --groups ewa,pa ewa
+useradd -c "Ratlos Rudi" -M -N --groups ewa,pa ewa
 echo "ewa:osz" | chpasswd
-useradd -M -N ewx
+useradd -c "Duck Duffy" -M -N ewx
 echo "ewx:osz" | chpasswd
-useradd -M -N --groups sb,pa sb
+useradd -c "Chastur Toni" -M -N --groups sb,pa sb
 echo "sb:osz" | chpasswd
 
 mkdir -p /home/michael/temp/projekte/projekt_a/docs
